@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    /* teksti värvid */
+    --color-text-10: #000000;
+    --color-text-100: #e1dbde;
+
+    /* heleda ja tumeda teema ühised värvid*/
+    --color-bg-primary: #2F4637;
+    --color-button-primary: #5B876A;
+    --color-button-hover: #71987E;
+
+    /*heleda teema värvid*/
+    --color-primary-10: #F5EFE4;
+    --color-primary-20: #D8CEBB;
+    --color-opacity-10: rgba(110, 148, 122, 0.3);
+    --color-op-pr-20: rgba(216, 206, 187, 0.5);
+
+    /*tumeda teema värvid*/
+    --color-secondary-10: #121111;
+    --color-secondary-20: #2A2929;
+    --color-secondary-30: #1E1D1D;
+    --color-opacity-30: rgba(30, 29, 29, 0.7);
+}
+
+/* hele teema vaikimisi */
+[data-theme="light"]{
+    @apply bg-primary-20;
+    button {
+        @apply bg-op-pr-20 hover:bg-primary-20;
+    }
+    .profile-card, .submit-project {
+        @apply bg-bg-primary text-text-100;
+    }
+    .profile-card button {
+        @apply bg-button-primary hover:bg-button-hover text-text-10;
+    }
+    .submit-project button {
+        @apply bg-button-primary hover:bg-button-hover text-text-10;
+    }
+    .info-box {
+        @apply bg-opacity-10;
+    }
+    .personalInfoManager input, .personalInfoManager textarea {
+        @apply w-full p-1.5 bg-button-hover border border-solid border-black rounded text-sm text-text-10 md:w-4/5 lg:w-full;
+    }
+    header, footer, .skills-section {
+        @apply bg-primary-10  ;
+    }
+    .submit-project input, .submit-project textarea, .submit-project select{
+        @apply bg-button-hover placeholder:text-text-10 text-text-10;
+    }
+    .skills-section input, .skills-section select {
+        @apply bg-op-pr-20 placeholder:text-text-10 text-text-10;
+    }
+}
+
+
+/* tume teema */
+[data-theme="dark"] {
+    @apply bg-secondary-20 text-text-100;
+    button {
+        @apply bg-secondary-30 hover:bg-secondary-20;
+    }
+    .profile-card, .submit-project {
+        @apply bg-secondary-10;
+    }
+    .info-box {
+        @apply bg-opacity-30;
+    }
+    header, footer, .skills-section {
+        @apply bg-bg-primary;
+    }
+    header button {
+        @apply bg-button-primary hover:bg-button-hover text-text-10;
+    }
+    .submit-project input, .submit-project textarea, .submit-project select{
+        @apply bg-secondary-20 placeholder:text-text-100 text-text-100;
+    }
+    .skills-section button {
+        @apply bg-button-primary hover:bg-button-hover text-text-10;
+    }
+    .skills-section input, .skills-section select {
+        @apply bg-op-pr-20 text-text-10 placeholder:text-text-10;
+    }
+    .personalInfoManager input, .personalInfoManager textarea {
+        @apply w-full p-1.5 bg-bg-primary border border-solid border-black rounded text-sm text-text-100 md:w-4/5 lg:w-full;
+    }
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+html { @apply scroll-smooth }
+
+a { @apply mr-4 }
+
+button {
+    @apply px-4 py-2 border border-black cursor-pointer transition ease-in-out duration-300
+}
